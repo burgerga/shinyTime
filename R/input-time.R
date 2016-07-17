@@ -5,7 +5,7 @@
 timeInput <- function(inputId, label) {
   tagList(
     singleton(tags$head(
-      tags$script(src = "input_binding_time.js")
+      tags$script(src = "shinyTime/input_binding_time.js")
     )),
     tags$div(id = inputId, class = "my-shiny-time-input form-group shiny input-container",
       if(!is.null(label)) tags$label(class = "control-label", `for` = inputId, label) else NULL,
