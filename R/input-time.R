@@ -1,3 +1,10 @@
+#' shinyTime: A timeInput widget for Shiny
+#'
+#' Provides a widget for inputting time in the h:m:s format.
+#'
+#' @docType package
+#' @name shinyTime
+NULL
 
 # Inspired by https://github.com/rstudio/shiny/blob/master/R/input-daterange.R
 #' @export
@@ -8,7 +15,7 @@ timeInput <- function(inputId, label) {
       tags$script(src = "shinyTime/input_binding_time.js")
     )),
     tags$div(id = inputId, class = "my-shiny-time-input form-group shiny input-container",
-      if(!is.null(label)) tags$label(class = "control-label", `for` = inputId, label) else NULL,
+      controlLabel(inputId, label),
       tags$div(class = "input-group",
         tags$input(type="number", min="0", max="23", step="1", value = 0),
         tags$b("h"),
@@ -21,13 +28,7 @@ timeInput <- function(inputId, label) {
   )
 }
 
-
-# Given a vector or list, drop all the NULL items in it
-# Copied from shiny/R/utils.R
-dropNulls <- function(x) {
-  x[!vapply(x, is.null, FUN.VALUE=logical(1))]
-}
-
+#' @export
 updateTimeInput <- function(session, inputId, label = NULL) {
   message <- dropNulls(list(label=label))
   session$sendInputMessage(inputId, message)
