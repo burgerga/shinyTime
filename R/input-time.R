@@ -32,3 +32,14 @@ updateTimeInput <- function(session, inputId, label = NULL) {
   message <- dropNulls(list(label=label))
   session$sendInputMessage(inputId, message)
 }
+
+#' Run a simple example app using the shinyTime functionality
+#'
+#' This functions runs a very simple app demonstrating the shinyTime functionality.
+#'
+#' @family shinyTime
+#' @importFrom shiny runApp
+#' @export
+shinyTimeExample <- function() {
+  runApp(system.file('example', package='shinyTime', mustWork=T), display.mode='showcase')
+}
