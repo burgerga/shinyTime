@@ -2,7 +2,7 @@ shinyTime
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Build Status](https://travis-ci.org/burgerga/shinyTime.svg?branch=master)](https://travis-ci.org/burgerga/shinyTime)
+![](http://www.r-pkg.org/badges/version/shinyTime) ![](http://cranlogs.r-pkg.org/badges/grand-total/shinyTime) [![Build Status](https://travis-ci.org/burgerga/shinyTime.svg?branch=master)](https://travis-ci.org/burgerga/shinyTime)
 
 This package provides a `timeInput` widget for Shiny. This widget allows intuitive time input in the `[hh]:[mm]:[ss]` (24H) format by using a separate numeric input for each part of the time. Setting and getting of the time in R is done with 'DateTimeClasses' objects.
 
