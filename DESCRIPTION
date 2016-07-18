@@ -1,7 +1,7 @@
 Package: shinyTime
 Type: Package
 Title: A timeInput widget for Shiny
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Gerhard", "Burger", email = "burger.ga@gmail.com", role = c("aut", "cre"))
 Description: Provides a widget for inputting time in the h:m:s format. More
     options will be added later.
