@@ -19,9 +19,8 @@ ui <- shinyUI(fluidPage(
 
    sidebarLayout(
       sidebarPanel(
-        timeInput("time_input", "Enter time here", value = strptime("12:34:56", "%T")),
-        actionButton("to_current_time", "Current time"),
-        actionButton("change_label", "Change label")
+        timeInput("time_input", "Enter time", value = strptime("12:34:56", "%T")),
+        actionButton("to_current_time", "Current time")
       ),
 
       # Show a plot of the generated distribution
@@ -37,9 +36,6 @@ server <- shinyServer(function(input, output, session) {
 
   observeEvent(input$to_current_time, {
     updateTimeInput(session, "time_input", value = Sys.time())
-  })
-  observeEvent(input$change_label, {
-    updateTimeInput(session, "time_input", label = "Label changed:")
   })
 })
 
