@@ -24,7 +24,10 @@ $.extend(timeInputBinding, {
       else
         values.push(numberVal);
     });
-    return values;
+    return {
+      hour: values[0],
+      min:  values[1],
+      sec:  values[2]};
   },
   setValue: function(el, value) {
     var $inputs = $(el).find('input');

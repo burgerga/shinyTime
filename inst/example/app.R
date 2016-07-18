@@ -19,7 +19,7 @@ ui <- shinyUI(fluidPage(
 
    sidebarLayout(
       sidebarPanel(
-        timeInput("time_input", "Enter time here", value = strptime("12:34:56", "%H:%M:%S")),
+        timeInput("time_input", "Enter time here", value = strptime("12:34:56", "%T")),
         actionButton("to_current_time", "Current time"),
         actionButton("change_label", "Change label")
       ),
@@ -33,7 +33,7 @@ ui <- shinyUI(fluidPage(
 
 # Define server logic
 server <- shinyServer(function(input, output, session) {
-  output$time_output <- renderText(input$time_input)
+  output$time_output <- renderText(strftime(input$time_input, "%T"))
 
   observeEvent(input$to_current_time, {
     updateTimeInput(session, "time_input", value = Sys.time())
