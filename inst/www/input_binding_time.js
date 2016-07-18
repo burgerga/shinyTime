@@ -5,6 +5,10 @@ var $escape = function(val) {
   return val.replace(/([!"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~])/g, '\\$1');
 };
 
+var findLabelForElement = function(el) {
+  return($(el).parent().find('label[for="' + $escape(el.id) + '"]'));
+};
+
 var timeInputBinding = new Shiny.InputBinding();
 
 $.extend(timeInputBinding, {
@@ -38,7 +42,7 @@ $.extend(timeInputBinding, {
   receiveMessage: function(el, data) {
     // To get updateTimeInput working
     if (data.hasOwnProperty('label')) {
-      $(el).parent().find('label[for="' + $escape(el.id) + '"]').text(data.label);
+      findLabelForElement(el).text(data.label);
     }
 
     if (data.hasOwnProperty('value')) this.setValue(el, data.value);
@@ -46,7 +50,10 @@ $.extend(timeInputBinding, {
     $(el).trigger('change');
   },
   getState: function(el) {
-    //TODO implement, but what is it supposed to do?
+    return {
+      label: findLabelForElement(el).text(),
+      value: this.getValue(el)
+    };
   },
   getType: function() {
     // Necessary to get the registerInputHandler working
