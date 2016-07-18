@@ -12,6 +12,8 @@ NULL
 timeInput <- function(inputId, label, value = NULL) {
   if(is.null(value)) value <- getDefaultTime()
   value_list <- parseTimeFromValue(value)
+  style <- "width: 5ex"
+  oninput <- "if(this.value < 10) this.value = '0' + this.value"
   tagList(
     singleton(tags$head(
       tags$script(src = "shinyTime/input_binding_time.js")
@@ -19,12 +21,14 @@ timeInput <- function(inputId, label, value = NULL) {
     tags$div(id = inputId, class = "my-shiny-time-input form-group shiny input-container",
       controlLabel(inputId, label),
       tags$div(class = "input-group",
-        tags$input(type="number", min="0", max="23", step="1", value = value_list$hour),
-        tags$b("h"),
-        tags$input(type="number", min="0", max="59", step="1", value = value_list$min),
-        tags$b("m"),
-        tags$input(type="number", min="0", max="59", step="1", value = value_list$sec),
-        tags$b("s")
+        tags$input(type="number", min="0", max="23", step="1", value = value_list$hour,
+                   style = style, oninput = oninput),
+        tags$b(":"),
+        tags$input(type="number", min="0", max="59", step="1", value = value_list$min,
+                   style = style, oninput = oninput),
+        tags$b(":"),
+        tags$input(type="number", min="0", max="59", step="1", value = value_list$sec,
+                   style = style, oninput = oninput)
       )
     )
   )

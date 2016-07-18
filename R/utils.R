@@ -22,7 +22,9 @@ dropNulls <- function(x) {
 parseTimeFromValue <- function(value){
   if(is.null(value)) return(NULL)
   posixlt_value <- unclass(as.POSIXlt(value))
-  time_list <- lapply(posixlt_value[c('hour', 'min', 'sec')], trunc)
+  time_list <- lapply(posixlt_value[c('hour', 'min', 'sec')], function(x) {
+    sprintf("%02d", trunc(x))
+  })
   return(time_list)
 }
 
