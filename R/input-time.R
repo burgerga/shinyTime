@@ -12,7 +12,7 @@ NULL
 timeInput <- function(inputId, label, value = NULL) {
   if(is.null(value)) value <- getDefaultTime()
   value_list <- parseTimeFromValue(value)
-  style <- "width: 5ex"
+  style <- "width: 5ch"
   oninput <- "if(this.value < 10) this.value = '0' + this.value"
   tagList(
     singleton(tags$head(
