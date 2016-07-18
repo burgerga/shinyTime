@@ -1,6 +1,5 @@
 #
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
+# This is a Shiny web application.
 #
 # Find out more about building applications with Shiny here:
 #
@@ -10,11 +9,8 @@
 library(shiny)
 library(shinyTime)
 
+ui <- fluidPage(
 
-# Define UI for application
-ui <- shinyUI(fluidPage(
-
-   # Application title
    titlePanel("shinyTime Example App"),
 
    sidebarLayout(
@@ -23,22 +19,19 @@ ui <- shinyUI(fluidPage(
         actionButton("to_current_time", "Current time")
       ),
 
-      # Show a plot of the generated distribution
       mainPanel(
         textOutput("time_output")
       )
    )
-))
+)
 
-# Define server logic
-server <- shinyServer(function(input, output, session) {
+server <- function(input, output, session) {
   output$time_output <- renderText(strftime(input$time_input, "%T"))
 
   observeEvent(input$to_current_time, {
     updateTimeInput(session, "time_input", value = Sys.time())
   })
-})
+}
 
-# Run the application
-shinyApp(ui = ui, server = server)
+shinyApp(ui, server)
 
