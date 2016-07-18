@@ -9,7 +9,9 @@ NULL
 # Inspired by https://github.com/rstudio/shiny/blob/master/R/input-daterange.R
 #' @export
 #' @importFrom htmltools tagList singleton tags
-timeInput <- function(inputId, label) {
+timeInput <- function(inputId, label, value = NULL) {
+  if(is.null(value)) value <- getDefaultTime()
+  value_list <- parseTimeFromValue(value)
   tagList(
     singleton(tags$head(
       tags$script(src = "shinyTime/input_binding_time.js")
@@ -17,11 +19,11 @@ timeInput <- function(inputId, label) {
     tags$div(id = inputId, class = "my-shiny-time-input form-group shiny input-container",
       controlLabel(inputId, label),
       tags$div(class = "input-group",
-        tags$input(type="number", min="0", max="23", step="1", value = 0),
+        tags$input(type="number", min="0", max="23", step="1", value = value_list$hour),
         tags$b("h"),
-        tags$input(type="number", min="0", max="59", step="1", value = 0),
+        tags$input(type="number", min="0", max="59", step="1", value = value_list$min),
         tags$b("m"),
-        tags$input(type="number", min="0", max="59", step="1", value = 0),
+        tags$input(type="number", min="0", max="59", step="1", value = value_list$sec),
         tags$b("s")
       )
     )
@@ -29,8 +31,9 @@ timeInput <- function(inputId, label) {
 }
 
 #' @export
-updateTimeInput <- function(session, inputId, label = NULL) {
-  message <- dropNulls(list(label=label))
+updateTimeInput <- function(session, inputId, label = NULL, value = NULL) {
+  value <- parseTimeFromValue(value)
+  message <- dropNulls(list(label=label, value = value))
   session$sendInputMessage(inputId, message)
 }
 

@@ -21,7 +21,7 @@
 
 #' Cleans up when package is unloaded
 #'
-#' Should reverse the effects from .onLoad
+#' Reverses the effects from .onLoad
 #'
 #' @importFrom shiny removeInputHandler
 #'

@@ -1,3 +1,10 @@
+
+// Escape jQuery selector metacharacters: !"#$%&'()*+,./:;<=>?@[\]^`{|}~
+// Copied from shiny/srcjs/utils.js
+var $escape = function(val) {
+  return val.replace(/([!"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~])/g, '\\$1');
+};
+
 var timeInputBinding = new Shiny.InputBinding();
 
 $.extend(timeInputBinding, {
@@ -19,25 +26,21 @@ $.extend(timeInputBinding, {
     });
     return values;
   },
-  setValue: function(el) {
-    //TODO implement
-    throw "Not implemented";
+  setValue: function(el, value) {
+    var $inputs = $(el).find('input');
+    $inputs.eq(0).val(value.hour);
+    $inputs.eq(1).val(value.min);
+    $inputs.eq(2).val(value.sec);
   },
   receiveMessage: function(el, data) {
     // To get updateTimeInput working
-    //TODO implement
-    throw "Not implemented";
-    /* Example from shiny/srcjs/input_binding_number.js
-    if (data.hasOwnProperty('value'))  el.value = data.value;
-    if (data.hasOwnProperty('min'))    el.min   = data.min;
-    if (data.hasOwnProperty('max'))    el.max   = data.max;
-    if (data.hasOwnProperty('step'))   el.step  = data.step;
-
-    if (data.hasOwnProperty('label'))
+    if (data.hasOwnProperty('label')) {
       $(el).parent().find('label[for="' + $escape(el.id) + '"]').text(data.label);
+    }
+
+    if (data.hasOwnProperty('value')) this.setValue(el, data.value);
 
     $(el).trigger('change');
-    */
   },
   getState: function(el) {
     //TODO implement, but what is it supposed to do?

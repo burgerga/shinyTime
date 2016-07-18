@@ -19,7 +19,9 @@ ui <- shinyUI(fluidPage(
 
    sidebarLayout(
       sidebarPanel(
-        timeInput("time_input", "Enter time here")
+        timeInput("time_input", "Enter time here", value = strptime("12:34:56", "%H:%M:%S")),
+        actionButton("to_current_time", "Current time"),
+        actionButton("change_label", "Change label")
       ),
 
       # Show a plot of the generated distribution
@@ -30,9 +32,15 @@ ui <- shinyUI(fluidPage(
 ))
 
 # Define server logic
-server <- shinyServer(function(input, output) {
+server <- shinyServer(function(input, output, session) {
   output$time_output <- renderText(input$time_input)
-  observe(print(input$time_input))
+
+  observeEvent(input$to_current_time, {
+    updateTimeInput(session, "time_input", value = Sys.time())
+  })
+  observeEvent(input$change_label, {
+    updateTimeInput(session, "time_input", label = "Label changed:")
+  })
 })
 
 # Run the application
