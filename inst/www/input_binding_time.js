@@ -41,12 +41,8 @@ $.extend(timeInputBinding, {
   },
   receiveMessage: function(el, data) {
     // To get updateTimeInput working
-    if (data.hasOwnProperty('label')) {
-      findLabelForElement(el).text(data.label);
-    }
-
+    if (data.hasOwnProperty('label')) findLabelForElement(el).text(data.label);
     if (data.hasOwnProperty('value')) this.setValue(el, data.value);
-
     $(el).trigger('change');
   },
   getState: function(el) {
