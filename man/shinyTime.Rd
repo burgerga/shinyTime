@@ -4,8 +4,10 @@
 \name{shinyTime}
 \alias{shinyTime}
 \alias{shinyTime-package}
-\title{shinyTime: A timeInput widget for Shiny}
+\title{shinyTime: A Time Input Widget for Shiny}
 \description{
-Provides a time input widget for inputting time in the %H:%M:%S format.
+Provides a time input widget for Shiny. This widget allows intuitive time input in the
+\code{[hh]:[mm]:[ss]} (24H) format by using a separate numeric input for each part
+of the time. The interface with R uses \code{\link{DateTimeClasses}} objects.
 }
 
