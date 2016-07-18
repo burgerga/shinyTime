@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 CHANGELOG*
 CONTRIBUTING*
+.travis.yml
