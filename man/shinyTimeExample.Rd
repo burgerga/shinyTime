@@ -2,12 +2,12 @@
 % Please edit documentation in R/input-time.R
 \name{shinyTimeExample}
 \alias{shinyTimeExample}
-\title{Run a simple example app using the shinyTime functionality}
+\title{Show the shinyTime example app}
 \usage{
 shinyTimeExample()
 }
 \description{
-This functions runs a very simple app demonstrating the shinyTime functionality.
+Run a simple shiny app demonstrating the shinyTime functionality.
 }
 \seealso{
 Other shinyTime.functions: \code{\link{timeInput}},

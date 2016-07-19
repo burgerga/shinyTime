@@ -31,7 +31,8 @@ $.extend(timeInputBinding, {
     return {
       hour: values[0],
       min:  values[1],
-      sec:  values[2]};
+      sec:  (values.length > 2) ? values[2] : 0
+    };
   },
   setValue: function(el, value) {
     var $inputs = $(el).find('input');

@@ -4,7 +4,7 @@
 \alias{timeInput}
 \title{Create a time input}
 \usage{
-timeInput(inputId, label, value = NULL)
+timeInput(inputId, label, value = NULL, seconds = TRUE)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}
@@ -12,10 +12,12 @@ timeInput(inputId, label, value = NULL)
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
 \item{value}{The desired time value. Must be a instance of \code{\link{DateTimeClasses}}.}
+
+\item{seconds}{Show input for seconds. Defaults to FALSE}
 }
 \description{
-Creates a time widget that consists of three separate numeric inputs for respectively the hours,
-minutes, and seconds. The input and output values of the time widget are instances of
+Creates a time widget that consists of separate numeric inputs for the hours, minutes, and
+seconds. The input and output values of the time widget are instances of
 \code{\link{DateTimeClasses}}, these can be converted to and from character strings with
 \code{\link{strptime}} and \code{\link{strftime}}. For a simple example app see
 \code{\link{shinyTimeExample}}.
@@ -32,7 +34,10 @@ ui <- fluidPage(
   timeInput("time2", "Time:", value = Sys.time()),
 
   # Set to custom time
-  timeInput("time3", "Time:", value = strptime("12:34:56", "\%T"))
+  timeInput("time3", "Time:", value = strptime("12:34:56", "\%T")),
+
+  # Use \%H:\%M format
+  timeInput("time4", "Time:", seconds = FALSE)
 )
 
 shinyApp(ui, server = function(input, output) { })

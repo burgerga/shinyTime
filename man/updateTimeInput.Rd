@@ -2,7 +2,7 @@
 % Please edit documentation in R/input-time.R
 \name{updateTimeInput}
 \alias{updateTimeInput}
-\title{Change the value of a time input on the client}
+\title{Change a time input on the client}
 \usage{
 updateTimeInput(session, inputId, label = NULL, value = NULL)
 }
@@ -17,7 +17,7 @@ updateTimeInput(session, inputId, label = NULL, value = NULL)
 \item{value}{The desired time value. Must be a instance of \code{\link{DateTimeClasses}}.}
 }
 \description{
-Change the value of a time input on the client
+Change the label and/or value of a time input
 }
 \examples{
 ## Only run examples in interactive R sessions
