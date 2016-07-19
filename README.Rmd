@@ -38,7 +38,7 @@ ui <- fluidPage(
 ```
 
 Note that setting an inital value is done with a [`DateTime`](http://www.inside-r.org/r-doc/base/DateTimeClasses) class,
-in the same way as setting a date in `dateInput` can done with a `Date` class.
+in the same way as setting a date in `dateInput` can be done with a `Date` class.
 
 The value retrieved will alse be in `DateTime` class. You need
 to convert it to character to be able to print the time, as the default character representation
