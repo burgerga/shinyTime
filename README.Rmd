@@ -32,7 +32,7 @@ ui <- fluidPage(
   # Set to current time
   timeInput("time2", "Time:", value = Sys.time()),
 
-  # Set to custom time using 
+  # Set to custom time 
   timeInput("time3", "Time:", value = strptime("12:34:56", "%T"))
 )
 ```
@@ -40,7 +40,7 @@ ui <- fluidPage(
 Note that setting an inital value is done with a [`DateTime`](http://www.inside-r.org/r-doc/base/DateTimeClasses) class,
 in the same way as setting a date in `dateInput` can done with a `Date` class.
 
-To retrieve the value, take note that the value will alse be in `DateTime` class. You need
+The value retrieved will alse be in `DateTime` class. You need
 to convert it to character to be able to print the time, as the default character representation
 does not include the time. An example:
 
@@ -51,4 +51,4 @@ server <- function(input, output) {
 }
 ```
 
-For a fully functional example try the `shinyTimeExample()` function in the package.
+For a fully functional app go to the [ShinyApps example](https://burgerga.shinyapps.io/shinyTimeExample/) (can be a bit slow) or try the `shinyTime::shinyTimeExample()` function after installing the package with `install.packages('shinyTime')`.
