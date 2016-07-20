@@ -10,5 +10,8 @@ There was 1 NOTE:
 
 * checking CRAN incoming feasibility ... NOTE
   Maintainer: ‘Gerhard Burger <burger.ga@gmail.com>’
-
-  This is my first package submission to CRAN
+  
+  Days since last update: 1
+  
+  Terribly sorry, the package turned out to have a usability bug
+  
