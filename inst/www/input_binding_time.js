@@ -1,4 +1,5 @@
-
+// Enclose in IEFE
+(function() {
 // Escape jQuery selector metacharacters: !"#$%&'()*+,./:;<=>?@[\]^`{|}~
 // Copied from shiny/srcjs/utils.js
 var $escape = function(val) {
@@ -95,3 +96,4 @@ $.extend(timeInputBinding, {
 });
 
 Shiny.inputBindings.register(timeInputBinding, 'my.shiny.timeInput');
+})();
