@@ -50,7 +50,6 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE) {
   if(is.null(value)) value <- getDefaultTime()
   value_list <- parseTimeFromValue(value)
   style <- "width: 8ch"
-  onchange <- "var value = (+this.value); this.value = value < 10 ? '0' + value: value;"
   input.class <- "form-control"
   tagList(
     singleton(tags$head(
@@ -60,11 +59,11 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE) {
       controlLabel(inputId, label),
       tags$div(class = "input-group",
         tags$input(type="number", min="0", max="23", step="1", value = value_list$hour,
-                   style = style, onchange = onchange, class = input.class),
+                   style = style, class = paste(c(input.class, 'shinytime-hours'), collapse = " ")),
         tags$input(type="number", min="0", max="59", step="1", value = value_list$min,
-                   style = style, onchange = onchange, class = input.class),
+                   style = style, class = paste(c(input.class, 'shinytime-mins'), collapse = " ")),
         if(seconds) tags$input(type="number", min="0", max="59", step="1", value = value_list$sec,
-                   style = style, onchange = onchange, class = input.class) else NULL
+                   style = style, class = paste(c(input.class, 'shinytime-secs'), collapse =  " ")) else NULL
       )
     )
   )

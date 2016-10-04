@@ -9,6 +9,33 @@ var findLabelForElement = function(el) {
   return($(el).parent().find('label[for="' + $escape(el.id) + '"]'));
 };
 
+var clamp = function(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+};
+
+var inRange = function(num, min, max) {
+  return (num >= min && num <= max);
+};
+
+var zeroPad = function(num) {
+  return (num < 10 ? '0' + num: num);
+};
+
+var correctInputValue = function(el) {
+  var $el = $(el);
+  var val = parseFloat($el.val());
+  // Check if number is integer, if so put to fixed form (0.1e1 will become 1), else make 0
+  var newVal = (val % 1 == 0) ? val.toFixed() : 0;
+  // Make 0 if out of range, alternative would be clamping.
+  if($el.hasClass('shinytime-hours')) {
+   newVal = inRange(newVal, 0, 23) ? newVal : 0;
+  } else {
+   newVal = inRange(newVal, 0, 59) ? newVal : 0;
+  }
+  // Zero pad and update value
+  $el.val(zeroPad(newVal));
+};
+
 var timeInputBinding = new Shiny.InputBinding();
 
 $.extend(timeInputBinding, {
@@ -58,6 +85,7 @@ $.extend(timeInputBinding, {
   },
   subscribe: function(el, callback) {
     $(el).on("change.timeInputBinding", function(e) {
+      correctInputValue(e.target);
       callback();
     });
   },
