@@ -39,7 +39,7 @@ shinyApp(ui, server)
 
 }
 \seealso{
-Other shinyTime.functions: \code{\link{shinyTimeExample}},
+Other shinyTime functions: \code{\link{shinyTimeExample}},
   \code{\link{timeInput}}
 }
-
+\concept{shinyTime functions}

@@ -18,7 +18,8 @@ NULL
 #'
 #' @inheritParams shiny::textInput
 #' @param value The desired time value. Must be a instance of \code{\link{DateTimeClasses}}.
-#' @param seconds Show input for seconds. Defaults to FALSE
+#' @param seconds Show input for seconds. Defaults to TRUE.
+#' @param minute.steps Round time to multiples of \code{minute.steps}. If not NULL sets \code{seconds} to \code{FALSE}.
 #'
 #' @family shinyTime functions
 #' @seealso \code{\link{strptime}}, \code{\link{strftime}}
@@ -46,9 +47,14 @@ NULL
 #'
 #' @importFrom htmltools tagList singleton tags
 #' @export
-timeInput <- function(inputId, label, value = NULL, seconds = TRUE) {
+timeInput <- function(inputId, label, value = NULL, seconds = TRUE, minute.steps = NULL) {
   if(is.null(value)) value <- getDefaultTime()
-  value_list <- parseTimeFromValue(value)
+  if(!is.null(minute.steps)) {
+    stopifnot(is.wholenumber(minute.steps))
+    seconds = F
+    value <- roundTime(value, minute.steps)
+  }
+  value_list <- dateToTimeList(value)
   style <- "width: 8ch"
   input.class <- "form-control"
   tagList(
@@ -60,7 +66,7 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE) {
       tags$div(class = "input-group",
         tags$input(type="number", min="0", max="23", step="1", value = value_list$hour,
                    style = style, class = paste(c(input.class, 'shinytime-hours'), collapse = " ")),
-        tags$input(type="number", min="0", max="59", step="1", value = value_list$min,
+        tags$input(type="number", min="0", max="59", step=minute.steps, value = value_list$min,
                    style = style, class = paste(c(input.class, 'shinytime-mins'), collapse = " ")),
         if(seconds) tags$input(type="number", min="0", max="59", step="1", value = value_list$sec,
                    style = style, class = paste(c(input.class, 'shinytime-secs'), collapse =  " ")) else NULL
@@ -98,7 +104,7 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE) {
 #'
 #' @export
 updateTimeInput <- function(session, inputId, label = NULL, value = NULL) {
-  value <- parseTimeFromValue(value)
+  value <- dateToTimeList(value)
   message <- dropNulls(list(label=label, value = value))
   session$sendInputMessage(inputId, message)
 }

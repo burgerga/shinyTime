@@ -15,22 +15,27 @@ ui <- fluidPage(
 
    sidebarLayout(
       sidebarPanel(
-        timeInput("time_input", "Enter time", value = strptime("12:34:56", "%T")),
+        timeInput("time_input1", "Enter time", value = strptime("12:34:56", "%T")),
+        timeInput("time_input2", "Enter time (5 minute steps)", value = strptime("12:34:56", "%T"), minute.steps = 5),
         actionButton("to_current_time", "Current time")
       ),
 
       mainPanel(
-        textOutput("time_output")
+        textOutput("time_output1"),
+        textOutput("time_output2")
       )
    )
 )
 
 server <- function(input, output, session) {
-  output$time_output <- renderText(strftime(input$time_input, "%T"))
+  output$time_output1 <- renderText(strftime(input$time_input1, "%T"))
+  output$time_output2 <- renderText(strftime(input$time_input2, "%T"))
 
   observeEvent(input$to_current_time, {
-    updateTimeInput(session, "time_input", value = Sys.time())
+    updateTimeInput(session, "time_input1", value = Sys.time())
+    updateTimeInput(session, "time_input2", value = Sys.time())
   })
+
 }
 
 shinyApp(ui, server)

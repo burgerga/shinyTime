@@ -15,7 +15,7 @@
     # Replace NULL by 0
     data[sapply(data, is.null)] <- 0
     # Convert to time object
-    strptime(paste(unlist(data), collapse = ':'), "%T")
+    timeListToDate(data)
   })
 }
 

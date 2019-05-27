@@ -10,4 +10,3 @@ Provides a time input widget for Shiny. This widget allows intuitive time input 
 \code{[hh]:[mm]:[ss]} or \code{[hh]:[mm]} (24H) format by using a separate numeric input for each
 time component. The interface with R uses \code{\link{DateTimeClasses}} objects.
 }
-

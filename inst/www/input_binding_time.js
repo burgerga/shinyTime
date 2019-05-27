@@ -26,15 +26,34 @@ var correctInputValue = function(el) {
   var $el = $(el);
   var val = parseFloat($el.val());
   // Check if number is integer, if so put to fixed form (0.1e1 will become 1), else make 0
-  var newVal = (val % 1 == 0) ? val.toFixed() : 0;
+  var newVal = (val % 1 === 0) ? val.toFixed() : 0;
   // Make 0 if out of range, alternative would be clamping.
   if($el.hasClass('shinytime-hours')) {
    newVal = inRange(newVal, 0, 23) ? newVal : 0;
   } else {
    newVal = inRange(newVal, 0, 59) ? newVal : 0;
   }
+  // correct minute step
+  if($el.hasClass('shinytime-mins')){
+    var step = $el.attr("step");
+    if(step != 1) {
+      newVal = inRange(newVal, 0, 55) ? Math.round(newVal / step) * step : 55;
+    }
+  }
   // Zero pad and update value
   $el.val(zeroPad(newVal));
+};
+
+// From https://stackoverflow.com/a/48512262/1439843
+var roundTime = function(value, minutesToRound) {
+
+  let roundTimeDate = (date) => {
+    let ms = 1000 * 60 * minutesToRound; // convert minutes to ms
+    return new Date(Math.round((new Date(date)).getTime() / ms) * ms);
+  };
+
+  roundedDate = roundTimeDate((new Date()).setHours(value.hour, value.min, value.sec));
+  return {hour: roundedDate.getHours(), min: roundedDate.getMinutes(), sec: roundedDate.getSeconds()};
 };
 
 var timeInputBinding = new Shiny.InputBinding();
@@ -64,6 +83,8 @@ $.extend(timeInputBinding, {
   },
   setValue: function(el, value) {
     var $inputs = $(el).find('input');
+    minuteSteps = $inputs.eq(1).attr("step");
+    if(minuteSteps && minuteSteps != 1) value = roundTime(value, minuteSteps);
     $inputs.eq(0).val(value.hour);
     $inputs.eq(1).val(value.min);
     $inputs.eq(2).val(value.sec);
