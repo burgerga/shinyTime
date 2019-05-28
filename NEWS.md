@@ -5,6 +5,10 @@ Also [Keep a CHANGELOG](http://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.0.0] - 2019-05-28
+### Added 
+- Input time with minutes rounded to the nearest user-specified multiple
+
 ## [0.2.1] - 2016-10-07
 ### Added
 - Updated style to match other shiny inputs
@@ -23,6 +27,7 @@ time (invalid values are set to 0)
 ### Added
  - Initial release
  
-[Unreleased]: https://github.com/burgerga/shinyTime/compare/v0.2.1...HEAD
-[0.2.0]: https://github.com/burgerga/shinyTime/compare/v0.1.0...v0.2.0
+[Unreleased]: https://github.com/burgerga/shinyTime/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/burgerga/shinyTime/compare/v0.2.1...v1.0.0
 [0.2.1]: https://github.com/burgerga/shinyTime/compare/v0.2.0...v0.2.1  
+[0.2.0]: https://github.com/burgerga/shinyTime/compare/v0.1.0...v0.2.0
