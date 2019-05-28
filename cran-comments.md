@@ -15,7 +15,7 @@ Error in library.dynam(lib, package, package.lib) :
 
 but on my local Windows 10, and win-builder devel everything is fine, 
 so I think this might be an issue with the build system. 
-(I don't use Rccp at all). 
+(the version currently on CRAN also fails: https://cloud.r-project.org//web/checks/check_results_shinyTime.html)
 
 ## Downstream dependencies
-There are currently no downstream dependencies for this package
+Checked with revdepcheck, no problems.
