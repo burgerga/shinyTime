@@ -36,7 +36,7 @@ var correctInputValue = function(el) {
   // correct minute step
   if($el.hasClass('shinytime-mins')){
     var step = $el.attr("step");
-    if(step != 1) {
+    if(step && step != 1) {
       newVal = inRange(newVal, 0, 55) ? Math.round(newVal / step) * step : 55;
     }
   }
