@@ -53,7 +53,7 @@ var roundTime = function(value, minutesToRound) {
   };
 
   roundedDate = roundTimeDate((new Date()).setHours(value.hour, value.min, value.sec));
-  return {hour: roundedDate.getHours(), min: roundedDate.getMinutes(), sec: roundedDate.getSeconds()};
+  return {hour: zeroPad(roundedDate.getHours()), min: zeroPad(roundedDate.getMinutes()), sec: zeroPad(roundedDate.getSeconds())};
 };
 
 var timeInputBinding = new Shiny.InputBinding();
