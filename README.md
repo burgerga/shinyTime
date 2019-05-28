@@ -12,7 +12,7 @@ Status](https://travis-ci.org/burgerga/shinyTime.svg?branch=master)](https://tra
 shinyTime provides a `timeInput` widget for Shiny. This widget allows
 intuitive time input in the `[hh]:[mm]:[ss]` or `[hh]:[mm]` (24H) format
 by using a separate numeric input for each time component. Setting and
-getting of the time in R is done with ‘DateTimeClasses’ objects.
+getting of the time in R is done with date-time objects.
 
 ## Installation
 
@@ -24,8 +24,7 @@ install.packages("shinyTime")
 ## Usage
 
 As the `shinyTime` package mimics the existing shiny functionality,
-using the package is easy. Some examples of adding an input widget to
-the UI:
+using the package is easy:
 
 ``` r
 ui <- fluidPage(
@@ -46,14 +45,14 @@ ui <- fluidPage(
 )
 ```
 
-Note that setting an inital value is done with a
-[`DateTime`](https://www.rdocumentation.org/packages/base/topics/DateTimeClasses)
-object, in the same way as setting a date in `dateInput` can be done
-with a `Date` object.
+Note that setting an initial value is done with a [date-time
+object](https://www.rdocumentation.org/packages/base/topics/DateTimeClasses),
+in the same way as setting a date in `dateInput` can be done with a
+`Date` object.
 
-The value retrieved will also be a `DateTime` object. You need to
-convert it to character to be able to print the time, as the default
-character representation does not include time. For example:
+The value retrieved will also be a date-time object. You need to convert
+it to character to be able to show the time, as the default character
+representation does not include time. For example:
 
 ``` r
 server <- function(input, output) {
@@ -65,7 +64,6 @@ server <- function(input, output) {
 }
 ```
 
-For a fully functional app go to the [ShinyApps
-example](https://burgerga.shinyapps.io/shinyTimeExample/) (can be a bit
-slow) or try the `shinyTime::shinyTimeExample()` function after
-installing this package.
+For a demo, visit the [online example
+app](https://burgerga.shinyapps.io/shinyTimeExample/) or try the
+`shinyTime::shinyTimeExample()` function.
