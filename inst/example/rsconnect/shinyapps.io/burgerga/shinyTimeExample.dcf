@@ -5,8 +5,8 @@ account: burgerga
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 115377
-bundleId: 2111494
+bundleId: 2114189
 url: https://burgerga.shinyapps.io/shinyTimeExample/
-when: 1558970629.32592
+when: 1559069168.37849
 asMultiple: FALSE
 asStatic: FALSE
