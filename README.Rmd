@@ -1,5 +1,4 @@
 ---
-title: shinyTime
 output: github_document
 ---
 
@@ -13,20 +12,31 @@ knitr::opts_chunk$set(
 )
 ```
 
+# shinyTime
+
 ![](http://www.r-pkg.org/badges/version/shinyTime)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/shinyTime)
 [![Build Status](https://travis-ci.org/burgerga/shinyTime.svg?branch=master)](https://travis-ci.org/burgerga/shinyTime)
 
-This package provides a `timeInput` widget for Shiny. This widget allows intuitive time input in the
+## Overview
+
+shinyTime provides a `timeInput` widget for Shiny. This widget allows intuitive time input in the
 `[hh]:[mm]:[ss]` or `[hh]:[mm]` (24H) format by using a separate numeric input for each time
 component. Setting and getting of the time in R is done with 'DateTimeClasses' objects.
 
-#Usage
+## Installation
+
+```{r eval = FALSE}
+# Install from CRAN
+install.packages("shinyTime")
+```
+
+## Usage
 
 As the `shinyTime` package mimics the existing shiny functionality, using the package is easy. Some
 examples of adding an input widget to the UI:
 
-```
+```{r eval = FALSE}
 ui <- fluidPage(
   # Using the default time 00:00:00
   timeInput("time1", "Time:"),
@@ -39,17 +49,20 @@ ui <- fluidPage(
   
   # Use %H:%M format
   timeInput("time4", "Time:", seconds = FALSE)
+  
+  # Use multiples of 5 minutes
+  timeInput("time5", "Time:", minute.steps = 5)
 )
 ```
 
 Note that setting an inital value is done with a
-[`DateTime`](http://www.inside-r.org/r-doc/base/DateTimeClasses) object, in the same way as setting
+[`DateTime`](https://www.rdocumentation.org/packages/base/topics/DateTimeClasses) object, in the same way as setting
 a date in `dateInput` can be done with a `Date` object.
 
 The value retrieved will also be a `DateTime` object. You need to convert it to character to be able
-to print the time, as the default character representation does not include it. An example:
+to print the time, as the default character representation does not include time. For example:
 
-```
+```{r eval=FALSE}
 server <- function(input, output) {
   # Print the time in [hh]:[mm]:[ss] everytime it changes
   observe(print(strftime(input$time1, "%T")))
@@ -61,5 +74,4 @@ server <- function(input, output) {
 
 For a fully functional app go to the 
 [ShinyApps example](https://burgerga.shinyapps.io/shinyTimeExample/) (can be a bit slow) or try the 
-`shinyTime::shinyTimeExample()` function after installing the package with 
-`install.packages('shinyTime')`.
+`shinyTime::shinyTimeExample()` function after installing this package.

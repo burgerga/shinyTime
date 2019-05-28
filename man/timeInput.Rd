@@ -16,7 +16,7 @@ timeInput(inputId, label, value = NULL, seconds = TRUE,
 
 \item{seconds}{Show input for seconds. Defaults to TRUE.}
 
-\item{minute.steps}{Round time to multiples of \code{minute.steps}. If not NULL sets \code{seconds} to \code{FALSE}.}
+\item{minute.steps}{Round time to multiples of \code{minute.steps} (should be a whole number). If not NULL sets \code{seconds} to \code{FALSE}.}
 }
 \description{
 Creates a time widget that consists of separate numeric inputs for the hours, minutes, and
@@ -40,7 +40,10 @@ ui <- fluidPage(
   timeInput("time3", "Time:", value = strptime("12:34:56", "\%T")),
 
   # Use \%H:\%M format
-  timeInput("time4", "Time:", seconds = FALSE)
+  timeInput("time4", "Time:", seconds = FALSE),
+
+  # Use multiples of 5 minutes
+  timeInput("time5", "Time:", minute.steps = 5)
 )
 
 shinyApp(ui, server = function(input, output) { })
@@ -48,7 +51,7 @@ shinyApp(ui, server = function(input, output) { })
 
 }
 \seealso{
-\code{\link{strptime}}, \code{\link{strftime}}
+\code{\link{strptime}}, \code{\link{strftime}}, \code{\link{DateTimeClasses}}
 
 Other shinyTime functions: \code{\link{shinyTimeExample}},
   \code{\link{updateTimeInput}}
