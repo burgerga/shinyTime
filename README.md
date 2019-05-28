@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# shinyTime
+# shinyTime <a href='https://burgerga.shinyapps.io/shinyTimeExample/' target="_blank"><img src='man/figures/timeInput.png' align="right" height="138.5" /></a>
 
 ![](http://www.r-pkg.org/badges/version/shinyTime)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/shinyTime) [![Build
