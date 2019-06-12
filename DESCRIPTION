@@ -12,7 +12,7 @@ LazyData: TRUE
 Imports:
     htmltools,
     shiny
-URL: https://github.com/burgerga/shinyTime
+URL: https://burgerga.github.io/shinyTime/, https://github.com/burgerga/shinyTime
 BugReports: https://github.com/burgerga/shinyTime/issues
 RoxygenNote: 6.1.1
 Encoding: UTF-8
