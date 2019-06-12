@@ -1,1 +1,13 @@
 destination: docs
+
+development:
+  mode: auto
+
+reference:
+- title: timeInput
+  contents:
+  - '`timeInput`'
+  - '`updateTimeInput`'
+- title: Examples
+  contents:
+  - '`shinyTimeExample`'
