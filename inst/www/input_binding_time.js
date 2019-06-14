@@ -47,7 +47,7 @@ var correctInputValue = function(el) {
 // From https://stackoverflow.com/a/48512262/1439843
 var roundTime = function(value, minutesToRound) {
 
-  let roundTimeDate = (date) => {
+  let roundTimeDate = function(date) {
     let ms = 1000 * 60 * minutesToRound; // convert minutes to ms
     return new Date(Math.round((new Date(date)).getTime() / ms) * ms);
   };
