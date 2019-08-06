@@ -1,21 +1,10 @@
 ## Test environments
-* travis-ci, Ubuntu 14.04, R 3.6
-* local machine, Ubuntu 18.04, R 3.6
-* local machine, Windows 10, R 3.6 
+* travis-ci, Ubuntu 16.04.6, R 3.6.1
+* local machine, Manjaro Linux, R 3.6.1
 * win-builder (devel and release)
 
 ## R CMD check results
 There were no ERRORs, NOTEs or WARNINGs. 
-
-However, for win-builder release I get: 
-```
-Error in library.dynam(lib, package, package.lib) : 
-  DLL 'Rcpp' not found: maybe not installed for this architecture?"
-```
-
-but on my local Windows 10, and win-builder devel everything is fine, 
-so I think this might be an issue with the build system. 
-(the version currently on CRAN also fails: https://cloud.r-project.org//web/checks/check_results_shinyTime.html)
 
 ## Downstream dependencies
 Checked with revdepcheck, no problems.
