@@ -2,6 +2,14 @@
 
 - [Source changes](https://github.com/burgerga/shinyTime/compare/v1.0.0...HEAD)
 
+# shinyTime 1.0.1
+
+- [Source changes](https://github.com/burgerga/shinyTime/compare/v1.0.0...v1.0.1)
+
+## Bug fixes
+
+- Removed use of ES6 that caused shinyTime to fail on older browsers
+
 # shinyTime 1.0.0
 
 - [Source changes](https://github.com/burgerga/shinyTime/compare/v0.2.1...v1.0.0)
