@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">shinyTime</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -88,38 +88,38 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install from CRAN</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"shinyTime"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Install from CRAN</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"shinyTime"</span>)</span></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>As the <code>shinyTime</code> package mimics the existing shiny functionality, using the package is easy:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="co"># Using the default time 00:00:00</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time1"</span>, <span class="st">"Time:"</span>),</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="co"># Set to current time</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time2"</span>, <span class="st">"Time:"</span>, <span class="dt">value =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>()),</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="co"># Set to custom time </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time3"</span>, <span class="st">"Time:"</span>, <span class="dt">value =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strptime">strptime</a></span>(<span class="st">"12:34:56"</span>, <span class="st">"%T"</span>)),</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">  </a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">  <span class="co"># Use %H:%M format</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time4"</span>, <span class="st">"Time:"</span>, <span class="dt">seconds =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">  </a>
-<a class="sourceLine" id="cb2-14" data-line-number="14">  <span class="co"># Use multiples of 5 minutes</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15">  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time5"</span>, <span class="st">"Time:"</span>, <span class="dt">minute.steps =</span> <span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb2-16" data-line-number="16">)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="co"># Using the default time 00:00:00</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time1"</span>, <span class="st">"Time:"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="co"># Set to current time</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time2"</span>, <span class="st">"Time:"</span>, <span class="dt">value =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>()),</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="co"># Set to custom time </span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time3"</span>, <span class="st">"Time:"</span>, <span class="dt">value =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strptime">strptime</a></span>(<span class="st">"12:34:56"</span>, <span class="st">"%T"</span>)),</span>
+<span id="cb2-10"><a href="#cb2-10"></a>  </span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="co"># Use %H:%M format</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time4"</span>, <span class="st">"Time:"</span>, <span class="dt">seconds =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb2-13"><a href="#cb2-13"></a>  </span>
+<span id="cb2-14"><a href="#cb2-14"></a>  <span class="co"># Use multiples of 5 minutes</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>  <span class="kw"><a href="reference/timeInput.html">timeInput</a></span>(<span class="st">"time5"</span>, <span class="st">"Time:"</span>, <span class="dt">minute.steps =</span> <span class="dv">5</span>)</span>
+<span id="cb2-16"><a href="#cb2-16"></a>)</span></code></pre></div>
 <p>Note that setting an initial value is done with a <a href="https://www.rdocumentation.org/packages/base/topics/DateTimeClasses">date-time object</a>, in the same way as setting a date in <code>dateInput</code> can be done with a <code>Date</code> object.</p>
 <p>The value retrieved will also be a date-time object. You need to convert it to character to be able to show the time, as the default character representation does not include time. For example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="co"># Print the time in [hh]:[mm]:[ss] everytime it changes</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="kw">observe</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strptime">strftime</a></span>(input<span class="op">$</span>time1, <span class="st">"%T"</span>)))</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="co"># Print the time in [hh]:[mm] everytime it changes</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="kw">observe</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strptime">strftime</a></span>(input<span class="op">$</span>time4, <span class="st">"%R"</span>)))</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="co"># Print the time in [hh]:[mm]:[ss] everytime it changes</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="kw">observe</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strptime">strftime</a></span>(input<span class="op">$</span>time1, <span class="st">"%T"</span>)))</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  </span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="co"># Print the time in [hh]:[mm] everytime it changes</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="kw">observe</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strptime">strftime</a></span>(input<span class="op">$</span>time4, <span class="st">"%R"</span>)))</span>
+<span id="cb3-7"><a href="#cb3-7"></a>}</span></code></pre></div>
 <p>For a demo, visit the <a href="https://burgerga.shinyapps.io/shinyTimeExample/">online example app</a> or try the <code><a href="reference/shinyTimeExample.html">shinyTime::shinyTimeExample()</a></code> function.</p>
 </div>
 </div>
