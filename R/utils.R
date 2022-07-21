@@ -44,10 +44,12 @@ getDefaultTime <- function(){
 is.wholenumber <- function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
 
 roundTime <- function(time, minutes) {
+  stopifnot("POSIXt" %in% class(time))
   stopifnot(is.wholenumber(minutes))
+  time <- as.POSIXct(time)
   # Copied from plyr:::round_any.numeric
   round_any <- function(x, accuracy, f=round){f(x/accuracy) * accuracy}
-  s <- round_any(unclass(as.POSIXct(time)), 60 * minutes)
+  s <- round_any(unclass(time), 60 * minutes)
   # Inspired by lubridate::origin
-  structure(s, class = c("POSIXct", "POSIXt"), tzone = "UTC")
+  structure(s, class = c("POSIXct", "POSIXt"), tzone = attr(time, "tzone"))
 }
