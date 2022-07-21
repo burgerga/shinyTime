@@ -3,7 +3,6 @@
 \docType{package}
 \name{shinyTime}
 \alias{shinyTime}
-\alias{shinyTime-package}
 \title{shinyTime: A Time Input Widget for Shiny}
 \description{
 Provides a time input widget for Shiny. This widget allows intuitive time input in the

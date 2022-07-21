@@ -4,8 +4,7 @@
 \alias{timeInput}
 \title{Create a time input}
 \usage{
-timeInput(inputId, label, value = NULL, seconds = TRUE,
-  minute.steps = NULL)
+timeInput(inputId, label, value = NULL, seconds = TRUE, minute.steps = NULL)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}
@@ -53,7 +52,8 @@ shinyApp(ui, server = function(input, output) { })
 \seealso{
 \code{\link{strptime}}, \code{\link{strftime}}, \code{\link{DateTimeClasses}}
 
-Other shinyTime functions: \code{\link{shinyTimeExample}},
-  \code{\link{updateTimeInput}}
+Other shinyTime functions: 
+\code{\link{shinyTimeExample}()},
+\code{\link{updateTimeInput}()}
 }
 \concept{shinyTime functions}

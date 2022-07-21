@@ -14,7 +14,7 @@ Imports:
     shiny
 URL: https://burgerga.github.io/shinyTime/, https://github.com/burgerga/shinyTime
 BugReports: https://github.com/burgerga/shinyTime/issues
-RoxygenNote: 6.1.1
+RoxygenNote: 7.2.1
 Encoding: UTF-8
 Language: en-US
 Suggests:

@@ -10,7 +10,8 @@ shinyTimeExample()
 Run a simple shiny app demonstrating the shinyTime functionality.
 }
 \seealso{
-Other shinyTime functions: \code{\link{timeInput}},
-  \code{\link{updateTimeInput}}
+Other shinyTime functions: 
+\code{\link{timeInput}()},
+\code{\link{updateTimeInput}()}
 }
 \concept{shinyTime functions}
