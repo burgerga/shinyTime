@@ -1,16 +1,16 @@
-# Some utility functions (mostly copied from shiny/R/utils.R)
-
-# Copied from shiny/R/utils.R
-`%AND%` <- function(x, y) {
-  if (!is.null(x) && !is.na(x))
-    if (!is.null(y) && !is.na(y))
-      return(y)
-  return(NULL)
-}
+# Some utility functions
 
 # Copied from shiny/R/input-utils.R
-controlLabel <- function(controlName, label) {
-  label %AND% tags$label(class = "control-label", `for` = controlName, label)
+shinyInputLabel <- function(inputId, label = NULL, control = FALSE) {
+  classes <- c(
+    if (is.null(label)) "shiny-label-null",
+    if (control) "control-label"
+  )
+  tags$label(
+    label,
+    `for` = inputId,
+    class = if (!is.null(classes)) paste(classes, collapse = " ")
+  )
 }
 
 # Given a vector or list, drop all the NULL items in it

@@ -65,7 +65,7 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE, minute.steps
       tags$script(src = "shinyTime/input_binding_time.js")
     )),
     tags$div(id = inputId, class = "my-shiny-time-input form-group shiny input-container",
-      controlLabel(inputId, label),
+      shinyInputLabel(inputId, label, control = TRUE),
       tags$div(class = "input-group",
         tags$input(type="number", min="0", max="23", step="1", value = value_list$hour,
                    style = style, class = paste(c(input.class, 'shinytime-hours'), collapse = " ")),
