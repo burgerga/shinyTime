@@ -8,7 +8,6 @@ Description: Provides a time input widget for Shiny. This widget allows intuitiv
     component. The interface with R uses date-time objects. See the project page for more
     information and examples.
 License: GPL-3 | file LICENSE
-LazyData: TRUE
 Imports:
     htmltools,
     shiny
