@@ -1,4 +1,6 @@
-destination: docs
+url: https://burgerga.github.io/shinyTime/
+template:
+  bootstrap: 5
 
 development:
   mode: auto
@@ -6,8 +8,8 @@ development:
 reference:
 - title: timeInput
   contents:
-  - '`timeInput`'
-  - '`updateTimeInput`'
+  - timeInput
+  - updateTimeInput
 - title: Examples
   contents:
-  - '`shinyTimeExample`'
+  - shinyTimeExample
