@@ -1,8 +1,14 @@
-# shinyTime 1.0.1.9000
+# shinyTime 1.0.2
+
+## Minor changes
+
+- Add information on `timeInput` return type (#14)
+
+## Bug fixes
 
 - Replaced outdated shiny utils label functions (#16)
+
 - Added correct timezone handling to `roundTime` function (#11)
-- Add information on `timeInput` return type (#14)
 
 # shinyTime 1.0.1
 
@@ -17,7 +23,6 @@
 - Input time with minutes rounded to the nearest user-specified multiple
 
 # shinyTime 0.2.1
-
 
 ## Minor changes
 
