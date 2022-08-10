@@ -19,7 +19,7 @@ timeInput(inputId, label, value = NULL, seconds = TRUE, minute.steps = NULL)
 If not NULL sets \code{seconds} to \code{FALSE}.}
 }
 \value{
-timeInput returns a \code{POSIXlt} object, which can be converted to
+Returns a \code{POSIXlt} object, which can be converted to
 a \code{POSIXct} object with \code{as.POSIXct} for more efficient storage.
 }
 \description{

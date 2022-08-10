@@ -15,7 +15,7 @@
 #' @param minute.steps Round time to multiples of \code{minute.steps} (should be a whole number).
 #' If not NULL sets \code{seconds} to \code{FALSE}.
 #'
-#' @returns timeInput returns a \code{POSIXlt} object, which can be converted to
+#' @returns Returns a \code{POSIXlt} object, which can be converted to
 #' a \code{POSIXct} object with \code{as.POSIXct} for more efficient storage.
 #'
 #' @family shinyTime functions

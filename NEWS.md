@@ -1,14 +1,14 @@
 # shinyTime 1.0.1.9000
 
 - Replaced outdated shiny utils label functions (#16)
-- Added correct timezone handling to roundTime function (#11)
-- Add information on timeInput return type (#14)
+- Added correct timezone handling to `roundTime` function (#11)
+- Add information on `timeInput` return type (#14)
 
 # shinyTime 1.0.1
 
 ## Bug fixes
 
-- Removed use of ES6 that caused shinyTime to fail on older browsers (#8)
+- Removed use of ES6 that caused `shinyTime` to fail on older browsers (#8)
 
 # shinyTime 1.0.0
 
