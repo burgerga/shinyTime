@@ -85,9 +85,17 @@ seconds. The input and output values of the time widget are instances of
 
 
 <dt>minute.steps</dt>
-<dd><p>Round time to multiples of <code>minute.steps</code> (should be a whole number). If not NULL sets <code>seconds</code> to <code>FALSE</code>.</p></dd>
+<dd><p>Round time to multiples of <code>minute.steps</code> (should be a whole number).
+If not NULL sets <code>seconds</code> to <code>FALSE</code>.</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>timeInput returns a <code>POSIXlt</code> object, which can be converted to
+a <code>POSIXct</code> object with <code>as.POSIXct</code> for more efficient storage.</p>
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/strptime.html" class="external-link">strptime</a></code>, <code><a href="https://rdrr.io/r/base/strptime.html" class="external-link">strftime</a></code>, <code><a href="https://rdrr.io/r/base/DateTimeClasses.html" class="external-link">DateTimeClasses</a></code></p>
