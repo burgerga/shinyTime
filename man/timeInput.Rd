@@ -15,7 +15,12 @@ timeInput(inputId, label, value = NULL, seconds = TRUE, minute.steps = NULL)
 
 \item{seconds}{Show input for seconds. Defaults to TRUE.}
 
-\item{minute.steps}{Round time to multiples of \code{minute.steps} (should be a whole number). If not NULL sets \code{seconds} to \code{FALSE}.}
+\item{minute.steps}{Round time to multiples of \code{minute.steps} (should be a whole number).
+If not NULL sets \code{seconds} to \code{FALSE}.}
+}
+\value{
+timeInput returns a \code{POSIXlt} object, which can be converted to
+a \code{POSIXct} object with \code{as.POSIXct} for more efficient storage.
 }
 \description{
 Creates a time widget that consists of separate numeric inputs for the hours, minutes, and

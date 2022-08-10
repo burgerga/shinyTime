@@ -2,6 +2,7 @@
 
 - Replaced outdated shiny utils label functions (#16)
 - Added correct timezone handling to roundTime function (#11)
+- Add information on timeInput return type (#14)
 
 # shinyTime 1.0.1
 

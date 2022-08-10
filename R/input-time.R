@@ -12,7 +12,11 @@
 #' @inheritParams shiny::textInput
 #' @param value The desired time value. Must be a instance of \code{\link{DateTimeClasses}}.
 #' @param seconds Show input for seconds. Defaults to TRUE.
-#' @param minute.steps Round time to multiples of \code{minute.steps} (should be a whole number). If not NULL sets \code{seconds} to \code{FALSE}.
+#' @param minute.steps Round time to multiples of \code{minute.steps} (should be a whole number).
+#' If not NULL sets \code{seconds} to \code{FALSE}.
+#'
+#' @returns timeInput returns a \code{POSIXlt} object, which can be converted to
+#' a \code{POSIXct} object with \code{as.POSIXct} for more efficient storage.
 #'
 #' @family shinyTime functions
 #' @seealso \code{\link{strptime}}, \code{\link{strftime}}, \code{\link{DateTimeClasses}}
