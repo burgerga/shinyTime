@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/404.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/index.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/reference/shinyTime-package.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/reference/shinyTimeExample.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/reference/timeInput.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/reference/updateTimeInput.html</loc>
+  </url>
+</urlset>
