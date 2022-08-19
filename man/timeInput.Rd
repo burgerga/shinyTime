@@ -27,7 +27,7 @@ Creates a time widget that consists of separate numeric inputs for the hours, mi
 seconds. The input and output values of the time widget are instances of
 \code{\link{DateTimeClasses}}, these can be converted to and from character strings with
 \code{\link{strptime}} and \code{\link{strftime}}.
-Additionally, the input can be specified as a character string in the `HH:MM:SS` format or an
+Additionally, the input can be specified as a character string in the `hh:mm:ss` format or an
 \code{\link[hms]{hms}} class. For a simple example app see \code{\link{shinyTimeExample}}.
 }
 \examples{
@@ -50,7 +50,7 @@ ui <- fluidPage(
   # Set to custom time using character string
   timeInput("time5", "Time:", value = "21:32:43"),
 
-  # Use HH:MM format
+  # Use hh:mm format
   timeInput("time6", "Time:", seconds = FALSE),
 
   # Use multiples of 5 minutes
