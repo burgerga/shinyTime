@@ -1,6 +1,4 @@
-## Resubmission
-
-Already pushed 1.0.2 to Github to force pkgdown github pages generation
+Small patch to fix broken of-label use of hms objects
 
 ## Test environments
 * github actions

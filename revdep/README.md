@@ -10,7 +10,7 @@
 |collate  |en_US.UTF-8                                                   |
 |ctype    |en_US.UTF-8                                                   |
 |tz       |Europe/Amsterdam                                              |
-|date     |2022-08-10                                                    |
+|date     |2022-08-19                                                    |
 |rstudio  |2022.07.1+554 Spotted Wakerobin (desktop)                     |
 |pandoc   |2.18 @ /usr/lib/rstudio/bin/quarto/bin/tools/ (via rmarkdown) |
 
@@ -18,7 +18,7 @@
 
 |package     |old     |new     |Δ  |
 |:-----------|:-------|:-------|:--|
-|shinyTime   |1.0.1   |1.0.2   |*  |
+|shinyTime   |1.0.2   |1.0.3   |*  |
 |base64enc   |0.1-3   |0.1-3   |   |
 |bslib       |0.4.0   |0.4.0   |   |
 |cachem      |1.0.6   |1.0.6   |   |
