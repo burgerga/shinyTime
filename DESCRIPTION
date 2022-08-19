@@ -19,4 +19,5 @@ Encoding: UTF-8
 Language: en-US
 Suggests:
     testthat (>= 2.1.0),
-    spelling
+    spelling,
+    hms

@@ -29,7 +29,7 @@ dateToTimeList <- function(value){
 }
 
 timeListToDate <- function(value) {
-    strptime(paste(c(value$hour, value$min, value$sec), collapse = ':'), "%T")
+  timeStringToDate(paste(c(value$hour, value$min, value$sec), collapse = ':'))
 }
 
 timeStringToDate <- function(string) {
@@ -44,8 +44,14 @@ getDefaultTime <- function(){
 is.wholenumber <- function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
 
 roundTime <- function(time, minutes) {
-  stopifnot("POSIXt" %in% class(time))
+  stopifnot(any(class(time) %in% c("POSIXt", "hms")))
   stopifnot(is.wholenumber(minutes))
+  if("hms" %in% class(time)) {
+    # if hms reset to local time zone instead of UTC
+    # works by getting the hour, minute, sec components out, and constructing a new POSIXlt object
+    # a bit inefficient, but only happens once for each timeInput
+    time <- timeListToDate(dateToTimeList(time))
+  }
   time <- as.POSIXct(time)
   # Copied from plyr:::round_any.numeric
   round_any <- function(x, accuracy, f=round){f(x/accuracy) * accuracy}

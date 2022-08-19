@@ -6,8 +6,9 @@
 #' Creates a time widget that consists of separate numeric inputs for the hours, minutes, and
 #' seconds. The input and output values of the time widget are instances of
 #' \code{\link{DateTimeClasses}}, these can be converted to and from character strings with
-#' \code{\link{strptime}} and \code{\link{strftime}}. For a simple example app see
-#' \code{\link{shinyTimeExample}}.
+#' \code{\link{strptime}} and \code{\link{strftime}}.
+#' Additionally, the input can be specified as a character string in the `HH:MM:SS` format or an
+#' \code{\link[hms]{hms}} class. For a simple example app see \code{\link{shinyTimeExample}}.
 #'
 #' @inheritParams shiny::textInput
 #' @param value The desired time value. Must be a instance of \code{\link{DateTimeClasses}}.
@@ -35,11 +36,17 @@
 #'   # Set to custom time
 #'   timeInput("time3", "Time:", value = strptime("12:34:56", "%T")),
 #'
-#'   # Use %H:%M format
-#'   timeInput("time4", "Time:", seconds = FALSE),
+#'   # Set to custom time using hms
+#'   timeInput("time4", "Time:", value = hms::as_hms("23:45:07")),
+#'
+#'   # Set to custom time using character string
+#'   timeInput("time5", "Time:", value = "21:32:43"),
+#'
+#'   # Use HH:MM format
+#'   timeInput("time6", "Time:", seconds = FALSE),
 #'
 #'   # Use multiples of 5 minutes
-#'   timeInput("time5", "Time:", minute.steps = 5)
+#'   timeInput("time7", "Time:", minute.steps = 5)
 #' )
 #'
 #' shinyApp(ui, server = function(input, output) { })
@@ -49,6 +56,7 @@
 #' @export
 timeInput <- function(inputId, label, value = NULL, seconds = TRUE, minute.steps = NULL) {
   if(is.null(value)) value <- getDefaultTime()
+  if(is.character(value)) value <- strptime(value, format = "%T")
   if(!is.null(minute.steps)) {
     stopifnot(is.wholenumber(minute.steps))
     seconds = F

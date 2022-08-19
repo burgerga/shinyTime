@@ -1,5 +1,9 @@
 # shinyTime (development version)
 
+## Minor changes
+
+- Add support for `hms::hms` and character input values (#18)
+
 # shinyTime 1.0.2
 
 ## Minor changes
