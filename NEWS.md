@@ -1,4 +1,4 @@
-# shinyTime (development version)
+# shinyTime 1.0.3
 
 ## Minor changes
 
