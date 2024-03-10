@@ -53,7 +53,11 @@ var roundTime = function(value, minutesToRound) {
   };
 
   roundedDate = roundTimeDate((new Date()).setHours(value.hour, value.min, value.sec));
-  return {hour: zeroPad(roundedDate.getHours()), min: zeroPad(roundedDate.getMinutes()), sec: zeroPad(roundedDate.getSeconds())};
+  return {
+    hour: zeroPad(roundedDate.getHours()),
+    min: zeroPad(roundedDate.getMinutes()),
+    sec: zeroPad(roundedDate.getSeconds())
+  };
 };
 
 var timeInputBinding = new Shiny.InputBinding();
@@ -75,19 +79,62 @@ $.extend(timeInputBinding, {
       else
         values.push(numberVal);
     });
+    // format hour for civilian time
+    var $civilian = $(el).find('.shinytime-civilian');
+    if ($civilian.length > 0) {
+      var civilian = $civilian.val();
+      var hour = parseInt(values[0], 10);
+      if (civilian == 'AM') {
+        if (hour == 12) {
+          hour = 0;
+        }
+      } else if (civilian == 'PM') {
+        if (hour < 12) {
+          hour += 12;
+        }
+      }
+      values[0] = hour;
+    } else {
+      var civilian = null;
+    }
+    // Return object with hour, min, sec and civilian
     return {
       hour: values[0],
       min:  values[1],
-      sec:  (values.length > 2) ? values[2] : 0
+      sec:  (values.length > 2) ? values[2] : 0,
+      civilian: civilian
     };
   },
   setValue: function(el, value) {
     var $inputs = $(el).find('input');
+    // format minute step
     minuteSteps = $inputs.eq(1).attr("step");
     if(minuteSteps && minuteSteps != 1) value = roundTime(value, minuteSteps);
-    $inputs.eq(0).val(value.hour);
+    // set min and sec values
     $inputs.eq(1).val(value.min);
-    $inputs.eq(2).val(value.sec);
+    if ($inputs.length > 2) $inputs.eq(2).val(value.sec);
+    // Set to civilian time from military time
+    var $civilian = $(el).find('.shinytime-civilian');
+    if ($civilian.length > 0 && value.civilian) {
+      console.log(value.hour);
+      var hour = parseInt(value.hour, 10);
+      if(value.civilian == 'AM') {
+        if (hour == 0) {
+          hour = 12;
+        }
+      } else if (value.civilian == 'PM') {
+        if (hour > 12) {
+          hour -= 12;
+        }
+      }
+      // set hour value
+      $inputs.eq(0).val(hour);
+      // set civilian value
+      $civilian.val(value.civilian);
+    } else {
+      // set hour value
+      $inputs.eq(0).val(value.hour);
+    }
   },
   receiveMessage: function(el, data) {
     // To get updateTimeInput working
@@ -106,13 +153,27 @@ $.extend(timeInputBinding, {
     return "my.shiny.timeInput";
   },
   subscribe: function(el, callback) {
-    $(el).on("change.timeInputBinding", function(e) {
+    // Bind change event for input elements
+    $(el).on("change.timeInputBinding",  'input', function(e) {
       correctInputValue(e.target);
       callback();
     });
+    // Bind change event for civilian time
+    var $civilian = $(el).find('.shinytime-civilian');
+    if ($civilian.length > 0) {
+      $civilian.on("change.shinytime-civilian", function(e) {
+        callback();
+      });
+    }
   },
   unsubscribe: function(el) {
+    // Unbind change event for input elements
     $(el).off(".timeInputBinding");
+    // Unbind change event for civilian time
+    var $civilian = $(el).find('.shinytime-civilian');
+    if ($civilian.length > 0) {
+      $civilian.off(".shinytime-civilian");
+    }
   }
 });
 
