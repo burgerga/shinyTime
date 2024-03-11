@@ -116,7 +116,6 @@ $.extend(timeInputBinding, {
     // Set to civilian time from military time
     var $civilian = $(el).find('.shinytime-civilian');
     if ($civilian.length > 0 && value.civilian) {
-      console.log(value.hour);
       var hour = parseInt(value.hour, 10);
       if(value.civilian == 'AM') {
         if (hour == 0) {
@@ -154,7 +153,7 @@ $.extend(timeInputBinding, {
   },
   subscribe: function(el, callback) {
     // Bind change event for input elements
-    $(el).on("change.timeInputBinding",  'input', function(e) {
+    $(el).on("change.timeInputBinding", function(e) {
       correctInputValue(e.target);
       callback();
     });

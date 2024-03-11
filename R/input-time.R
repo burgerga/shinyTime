@@ -165,7 +165,7 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE,
 #' @export
 updateTimeInput <- function(session, inputId, label = NULL, value = NULL) {
   value <- dateToTimeList(value)
-  message <- dropNulls(list(label=label, value = value))
+  message <- dropNulls(list(label = label, value = value))
   session$sendInputMessage(inputId, message)
 }
 
