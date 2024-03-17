@@ -9,20 +9,38 @@
 library(shiny)
 library(shinyTime)
 
+start_time <- "23:34:56"
+
 ui <- fluidPage(
 
    titlePanel("shinyTime Example App"),
 
    sidebarLayout(
+
       sidebarPanel(
-        timeInput("time_input1", "Enter time", value = strptime("12:34:56", "%T")),
-        timeInput("time_input2", "Enter time (5 minute steps)", value = strptime("12:34:56", "%T"), minute.steps = 5),
+        width = 3,
+        timeInput(
+          "time_input1", "Enter time",
+          value = strptime(start_time, "%T")
+        ),
+        timeInput(
+          "time_input2", "Enter time (5 minute steps)",
+          value = strptime(start_time, "%T"),
+          minute.steps = 5
+        ),
+        timeInput(
+          "time_input3", "Enter time",
+          value = strptime(start_time, "%T"),
+          use.civilian = TRUE,
+          width = "60px"
+        ),
         actionButton("to_current_time", "Current time")
       ),
 
       mainPanel(
         textOutput("time_output1"),
-        textOutput("time_output2")
+        textOutput("time_output2"),
+        textOutput("time_output3")
       )
    )
 )
@@ -30,10 +48,12 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   output$time_output1 <- renderText(strftime(input$time_input1, "%T"))
   output$time_output2 <- renderText(strftime(input$time_input2, "%R"))
+  output$time_output3 <- renderText(strftime(input$time_input3, "%I:%M:%S %p"))
 
   observeEvent(input$to_current_time, {
     updateTimeInput(session, "time_input1", value = Sys.time())
     updateTimeInput(session, "time_input2", value = Sys.time())
+    updateTimeInput(session, "time_input3", value = Sys.time())
   })
 
 }
