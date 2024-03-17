@@ -24,6 +24,9 @@ var zeroPad = function(num) {
 
 var correctInputValue = function(el) {
   var $el = $(el);
+  // if class is shinytime-civilian, return
+  if($el.hasClass('shinytime-civilian')) return;
+  // format as float
   var val = parseFloat($el.val());
   // Check if number is integer, if so put to fixed form (0.1e1 will become 1), else make 0
   var newVal = (val % 1 === 0) ? val.toFixed() : 0;
