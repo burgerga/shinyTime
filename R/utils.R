@@ -1,9 +1,10 @@
 # Some utility functions
 
 # Copied from shiny/R/input-utils.R
+#' Create a label tag for a given input
 #' @param inputId The input ID
 #' @param label The label text
-#' @param control Whether the label is for a control (e.g. a checkbox)
+#' @param control Whether the label is for a control (e.g., a checkbox)
 #' @return A label tag
 shinyInputLabel <- function(inputId, label = NULL, control = FALSE) {
   classes <- c(
@@ -19,6 +20,7 @@ shinyInputLabel <- function(inputId, label = NULL, control = FALSE) {
 
 # Given a vector or list, drop all the NULL items in it
 # Copied from shiny/R/utils.R
+#' Drop NULL values from vector/lists
 #' @param x A vector or list
 #' @return A vector or list with all the NULL items removed
 dropNulls <- function(x) {

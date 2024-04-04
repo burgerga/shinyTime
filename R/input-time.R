@@ -11,14 +11,11 @@
 #' \code{\link[hms]{hms}} class. For a simple example app see \code{\link{shinyTimeExample}}.
 #'
 #' @inheritParams shiny::textInput
-#' @param inputId The UI element ID that will be used to access the value.
-#' @param label The UI label for the input.
 #' @param value The desired time value. Must be a instance of \code{\link{DateTimeClasses}}.
 #' @param seconds Show input for seconds. Defaults to TRUE.
 #' @param minute.steps Round time to multiples of \code{minute.steps} (should be a whole number).
-#' @param use.civilian Use civilian time (12-hour format) instead of 24-hour format.
-#' @param width The width of the input, e.g. '400px', or '100%'; see \code{\link{shiny::textInput}}.
 #' If not NULL sets \code{seconds} to \code{FALSE}.
+#' @param use.civilian Use civilian time (12-hour format) instead of 24-hour format.
 #'
 #' @returns Returns a \code{POSIXlt} object, which can be converted to
 #' a \code{POSIXct} object with \code{as.POSIXct} for more efficient storage.
