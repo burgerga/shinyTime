@@ -6,7 +6,7 @@
 \alias{shinyTime-package}
 \title{shinyTime: A Time Input Widget for Shiny}
 \description{
-Provides a time input widget for Shiny. This widget allows intuitive time input in the '[hh]:[mm]:[ss]' or '[hh]:[mm]' (24H) format by using a separate numeric input for each time component. The interface with R uses date-time objects. See the project page for more information and examples.
+Provides a time input widget for Shiny. This widget allows intuitive time input in the '[hh]:[mm]:[ss]' or '[hh]:[mm]' (24H and 12H) format by using a separate numeric input for each time component. The interface with R uses date-time objects. See the project page for more information and examples.
 }
 \seealso{
 Useful links:
@@ -19,6 +19,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Gerhard Burger \email{burger.ga@gmail.com} (\href{https://orcid.org/0000-0003-1062-5576}{ORCID})
+
+Authors:
+\itemize{
+  \item Nick Youngblut (\href{https://orcid.org/0000-0002-7424-5276}{ORCID})
+}
 
 }
 \keyword{internal}
