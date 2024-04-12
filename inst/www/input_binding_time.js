@@ -89,10 +89,12 @@ $.extend(timeInputBinding, {
       var hour = parseInt(values[0], 10);
       if (civilian == 'AM') {
         if (hour == 12) {
+          // 12:00 AM is 00:00 in 24-hour notation
           hour = 0;
         }
       } else if (civilian == 'PM') {
         if (hour < 12) {
+          // 12:00 PM is 12:00 in 24-hour notation
           hour += 12;
         }
       }
