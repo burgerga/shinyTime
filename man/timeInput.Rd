@@ -67,7 +67,7 @@ ui <- fluidPage(
   timeInput("time6", "Time:", seconds = FALSE),
 
   # Use multiples of 5 minutes
-  timeInput("time7", "Time:", minute.steps = 5)
+  timeInput("time7", "Time:", minute.steps = 5),
 
   # Use civilian (non-military time)
   timeInput("time8", "Time:", use.civilian = TRUE)
