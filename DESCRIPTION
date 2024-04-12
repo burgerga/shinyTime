@@ -20,4 +20,5 @@ Language: en-US
 Suggests:
     testthat (>= 2.1.0),
     spelling,
-    hms
+    hms,
+    bslib

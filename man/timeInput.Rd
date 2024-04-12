@@ -11,7 +11,7 @@ timeInput(
   seconds = TRUE,
   minute.steps = NULL,
   use.civilian = FALSE,
-  width = "8ch"
+  width = NULL
 )
 }
 \arguments{

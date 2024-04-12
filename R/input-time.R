@@ -59,7 +59,7 @@
 #' @importFrom htmltools tagList singleton tags
 #' @export
 timeInput <- function(inputId, label, value = NULL, seconds = TRUE,
-                      minute.steps = NULL, use.civilian = FALSE, width = "8ch") {
+                      minute.steps = NULL, use.civilian = FALSE, width = NULL) {
   if(is.null(value)) value <- getDefaultTime()
   if(is.character(value)) value <- strptime(value, format = "%T")
   if(!is.null(minute.steps)) {
@@ -68,7 +68,12 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE,
     value <- roundTime(value, minute.steps)
   }
   value_list <- dateToTimeList(value)
-  style <- paste0("width: ", htmltools::validateCssUnit(width))
+
+  div_style <- htmltools::css(width = shiny::validateCssUnit(width))
+  el_width <- "65px"
+  el_style <- htmltools::css(`min-width` = shiny::validateCssUnit(el_width),
+                             flex = "1 1 auto")
+
   input.class <- "form-control"
   # Set hour values
   if(use.civilian){
@@ -92,24 +97,28 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE,
     )),
     tags$div(
       id = inputId,
-      class = "my-shiny-time-input form-group shiny input-container",
+      class = "my-shiny-time-input form-group shiny-input-container",
+      style = div_style,
       shinyInputLabel(inputId, label, control = TRUE),
       tags$div(
         class = "input-group",
+        style = htmltools::css(display = "flex",
+                               `flex-direction` = "row",
+                               `flex-wrap` = "nowrap"),
         tags$input(
           type="number", min = min_hour, max = max_hour, step = "1",
-          value = value_hour, style = style,
+          value = value_hour, style = el_style,
           class = paste(c(input.class, 'shinytime-hours'), collapse = " ")
         ),
         tags$input(
           type="number", min = "0", max = "59", step = minute.steps,
-          value = value_list$min, style = style,
+          value = value_list$min, style = el_style,
           class = paste(c(input.class, 'shinytime-mins'), collapse = " ")
         ),
         if(seconds){
           tags$input(
             type="number", min = "0", max = "59", step = "1",
-            value = value_list$sec, style = style,
+            value = value_list$sec, style = el_style,
             class = paste(c(input.class, 'shinytime-secs'), collapse =  " ")
           )
         } else NULL,
@@ -123,7 +132,8 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE,
               value = "PM", "PM",
               selected = if(value_list$civilian == "PM") TRUE else NULL
             ),
-            style = "width: 70px",
+            style = htmltools::css(`min-width` = shiny::validateCssUnit("70px"),
+                                   flex = "1 1 auto"),
             class = paste(c(input.class, 'shinytime-civilian'), collapse =  " ")
           )
         } else NULL
@@ -175,4 +185,13 @@ updateTimeInput <- function(session, inputId, label = NULL, value = NULL) {
 #' @export
 shinyTimeExample <- function() {
   runApp(system.file('example', package='shinyTime', mustWork=T), display.mode='showcase')
+}
+
+#' Show the shinyTime debug app
+#'
+#' App to test the input with a variety of options
+#'
+#' @importFrom shiny runApp
+shinyTimeDebug <- function() {
+  runApp(system.file('debug', package='shinyTime', mustWork=T), display.mode='normal')
 }
