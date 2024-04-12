@@ -10,6 +10,8 @@
 .onLoad <- function(libname, pkgname) {
   # Add directory for static resources
   addResourcePath('shinyTime', system.file('www', package='shinyTime', mustWork = TRUE))
+  # Make shinyTime work with running devtools::load_all(".") multiple times
+  removeInputHandler('my.shiny.timeInput')
   # Do some processing on the data we get from javascript before we pass it on to R
   registerInputHandler('my.shiny.timeInput', function(data, ...) {
     # Replace NULL by 0
