@@ -4,7 +4,15 @@
 \alias{timeInput}
 \title{Create a time input}
 \usage{
-timeInput(inputId, label, value = NULL, seconds = TRUE, minute.steps = NULL)
+timeInput(
+  inputId,
+  label,
+  value = NULL,
+  seconds = TRUE,
+  minute.steps = NULL,
+  use.civilian = FALSE,
+  width = NULL
+)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}
@@ -17,6 +25,11 @@ timeInput(inputId, label, value = NULL, seconds = TRUE, minute.steps = NULL)
 
 \item{minute.steps}{Round time to multiples of \code{minute.steps} (should be a whole number).
 If not NULL sets \code{seconds} to \code{FALSE}.}
+
+\item{use.civilian}{Use civilian time (12-hour format) instead of 24-hour format.}
+
+\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
+see \code{\link[shiny:validateCssUnit]{validateCssUnit()}}.}
 }
 \value{
 Returns a \code{POSIXlt} object, which can be converted to
@@ -54,7 +67,10 @@ ui <- fluidPage(
   timeInput("time6", "Time:", seconds = FALSE),
 
   # Use multiples of 5 minutes
-  timeInput("time7", "Time:", minute.steps = 5)
+  timeInput("time7", "Time:", minute.steps = 5),
+
+  # Use civilian (non-military time)
+  timeInput("time8", "Time:", use.civilian = TRUE)
 )
 
 shinyApp(ui, server = function(input, output) { })
