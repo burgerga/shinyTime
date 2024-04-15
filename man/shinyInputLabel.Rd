@@ -17,3 +17,4 @@ A label tag
 \description{
 Create a label tag for a given input
 }
+\keyword{internal}

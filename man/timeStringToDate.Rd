@@ -15,3 +15,4 @@ A time object
 \description{
 Convert a string to a time object
 }
+\keyword{internal}

@@ -15,3 +15,4 @@ A vector or list with all the NULL items removed
 \description{
 Drop NULL values from vector/lists
 }
+\keyword{internal}

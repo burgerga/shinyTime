@@ -19,3 +19,4 @@ A time object rounded to the nearest minute
 Round a time object to the nearest minute
 From ?is.integer
 }
+\keyword{internal}

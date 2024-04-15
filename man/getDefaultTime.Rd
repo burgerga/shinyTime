@@ -12,3 +12,4 @@ A time object with the value "00:00:00"
 \description{
 Get the default time
 }
+\keyword{internal}

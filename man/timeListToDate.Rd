@@ -15,3 +15,4 @@ A time object
 \description{
 Convert a list to a time object
 }
+\keyword{internal}

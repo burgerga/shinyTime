@@ -5,6 +5,7 @@
 #' @param inputId The `input` slot
 #' @param label The label text
 #' @return A label tag
+#' @keywords internal
 shinyInputLabel <- function (inputId, label = NULL)
 {
   tags$label(label, class = "control-label", class = if (is.null(label))
@@ -38,6 +39,7 @@ dateToTimeList <- function(value){
 #' Convert a list to a time object
 #' @param value A list with the hour, minute and second components
 #' @return A time object
+#' @keywords internal
 timeListToDate <- function(value) {
   timeStringToDate(paste(c(value$hour, value$min, value$sec), collapse = ':'))
 }
@@ -45,12 +47,14 @@ timeListToDate <- function(value) {
 #' Convert a string to a time object
 #' @param string A string with the time in the format "HH:MM:SS"
 #' @return A time object
+#' @keywords internal
 timeStringToDate <- function(string) {
   strptime(string, format = "%T")
 }
 
 #' Get the default time
 #' @return A time object with the value "00:00:00"
+#' @keywords internal
 getDefaultTime <- function(){
   timeStringToDate("00:00:00")
 }
@@ -60,6 +64,7 @@ getDefaultTime <- function(){
 #' @param x A time object
 #' @param tol The tolerance for rounding
 #' @return A time object rounded to the nearest minute
+#' @keywords internal
 is.wholenumber <- function(x, tol = .Machine$double.eps^0.5){
   abs(x - round(x)) < tol
 }
@@ -68,6 +73,7 @@ is.wholenumber <- function(x, tol = .Machine$double.eps^0.5){
 #' @param time A time object
 #' @param minutes The number of minutes to round to
 #' @return A time object rounded to the nearest minute
+#' @keywords internal
 roundTime <- function(time, minutes) {
   stopifnot(any(class(time) %in% c("POSIXt", "hms")))
   stopifnot(is.wholenumber(minutes))

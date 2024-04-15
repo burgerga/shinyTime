@@ -192,6 +192,7 @@ shinyTimeExample <- function() {
 #' App to test the input with a variety of options
 #'
 #' @importFrom shiny runApp
+#' @keywords internal
 shinyTimeDebug <- function() {
   runApp(system.file('debug', package='shinyTime', mustWork=T), display.mode='normal')
 }

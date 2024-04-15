@@ -15,3 +15,4 @@ A list with the hour, minute and second components
 \description{
 Convert a time object to a list
 }
+\keyword{internal}

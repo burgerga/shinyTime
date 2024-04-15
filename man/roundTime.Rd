@@ -17,3 +17,4 @@ A time object rounded to the nearest minute
 \description{
 Round a time object to the nearest minute
 }
+\keyword{internal}
