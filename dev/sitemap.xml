@@ -16,16 +16,43 @@
     <loc>https://burgerga.github.io/shinyTime/dev/news/index.html</loc>
   </url>
   <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/dateToTimeList.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/dropNulls.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/getDefaultTime.html</loc>
+  </url>
+  <url>
     <loc>https://burgerga.github.io/shinyTime/dev/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/is.wholenumber.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/roundTime.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/shinyInputLabel.html</loc>
+  </url>
+  <url>
     <loc>https://burgerga.github.io/shinyTime/dev/reference/shinyTime-package.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/shinyTimeDebug.html</loc>
   </url>
   <url>
     <loc>https://burgerga.github.io/shinyTime/dev/reference/shinyTimeExample.html</loc>
   </url>
   <url>
     <loc>https://burgerga.github.io/shinyTime/dev/reference/timeInput.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/timeListToDate.html</loc>
+  </url>
+  <url>
+    <loc>https://burgerga.github.io/shinyTime/dev/reference/timeStringToDate.html</loc>
   </url>
   <url>
     <loc>https://burgerga.github.io/shinyTime/dev/reference/updateTimeInput.html</loc>
