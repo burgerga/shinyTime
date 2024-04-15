@@ -99,7 +99,7 @@ timeInput <- function(inputId, label, value = NULL, seconds = TRUE,
       id = inputId,
       class = "my-shiny-time-input form-group shiny-input-container",
       style = div_style,
-      shinyInputLabel(inputId, label, control = TRUE),
+      shinyInputLabel(inputId, label),
       tags$div(
         class = "input-group",
         style = htmltools::css(display = "flex",

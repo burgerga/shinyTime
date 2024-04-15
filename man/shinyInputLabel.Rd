@@ -4,14 +4,12 @@
 \alias{shinyInputLabel}
 \title{Create a label tag for a given input}
 \usage{
-shinyInputLabel(inputId, label = NULL, control = FALSE)
+shinyInputLabel(inputId, label = NULL)
 }
 \arguments{
-\item{inputId}{The input ID}
+\item{inputId}{The `input` slot}
 
 \item{label}{The label text}
-
-\item{control}{Whether the label is for a control (e.g., a checkbox)}
 }
 \value{
 A label tag

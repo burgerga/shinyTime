@@ -2,20 +2,13 @@
 
 # Copied from shiny/R/input-utils.R
 #' Create a label tag for a given input
-#' @param inputId The input ID
+#' @param inputId The `input` slot
 #' @param label The label text
-#' @param control Whether the label is for a control (e.g., a checkbox)
 #' @return A label tag
-shinyInputLabel <- function(inputId, label = NULL, control = FALSE) {
-  classes <- c(
-    if (is.null(label)) "shiny-label-null",
-    if (control) "control-label"
-  )
-  tags$label(
-    label,
-    `for` = inputId,
-    class = if (!is.null(classes)) paste(classes, collapse = " ")
-  )
+shinyInputLabel <- function (inputId, label = NULL)
+{
+  tags$label(label, class = "control-label", class = if (is.null(label))
+    "shiny-label-null", id = paste0(inputId, "-label"), `for` = inputId)
 }
 
 # Given a vector or list, drop all the NULL items in it
@@ -23,6 +16,7 @@ shinyInputLabel <- function(inputId, label = NULL, control = FALSE) {
 #' Drop NULL values from vector/lists
 #' @param x A vector or list
 #' @return A vector or list with all the NULL items removed
+#' @keywords internal
 dropNulls <- function(x) {
   x[!vapply(x, is.null, FUN.VALUE=logical(1))]
 }
@@ -30,6 +24,7 @@ dropNulls <- function(x) {
 #' Convert a time object to a list
 #' @param value A time object
 #' @return A list with the hour, minute and second components
+#' @keywords internal
 dateToTimeList <- function(value){
   if(is.null(value)) return(NULL)
   posixlt_value <- unclass(as.POSIXlt(value))
