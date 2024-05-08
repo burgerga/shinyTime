@@ -15,7 +15,7 @@ Description: Provides a time input widget for Shiny. This widget allows intuitiv
     '[hh]:[mm]:[ss]' or '[hh]:[mm]' (24H and 12H) format by using a separate numeric input for each time
     component. The interface with R uses date-time objects. See the project page for more
     information and examples.
-License: GPL-3 | file LICENSE
+License: MIT + file LICENSE
 Imports:
     htmltools,
     shiny
